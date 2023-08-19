@@ -5,6 +5,9 @@ import org.springframework.batch.core.scope.context.ChunkContext;
 import org.springframework.batch.core.step.tasklet.Tasklet;
 import org.springframework.batch.repeat.RepeatStatus;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class Tarea1 implements Tasklet{
 
 	@Override
@@ -12,7 +15,7 @@ public class Tarea1 implements Tasklet{
 		// TODO Auto-generated method stub
 		
 		System.out.println("Hola desde Tarea 1");
-		
+		log.info("Hola desde Tarea 1");
 		
 		return RepeatStatus.FINISHED;
 		

@@ -18,9 +18,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
-@EnableBatchProcessing
 public class BatchConfig {
-
+/* 
 	@Bean
 	Job multithreadingStepJob2(JobRepository jobRepository,
 			@Qualifier("migrarPessoaStep")  Step migrarPessoaStep,
@@ -31,7 +30,7 @@ public class BatchConfig {
 				.incrementer(new RunIdIncrementer())
 				.build();
 	}
-	
+	*/
 	/*
 	 * @Bean
 	Job multithreadingStepJob2(JobRepository jobRepository, PlatformTransactionManager transactionManager) {
@@ -76,6 +75,8 @@ public class BatchConfig {
 		
 		return new StepBuilder("paso1", jobRepository)
 				.allowStartIfComplete(true)
+				.tasklet(new Tarea1(), transactionManager)
+				.tasklet(new Tarea1(), transactionManager)
 				.tasklet(new Tarea1(), transactionManager)
 				.build();			
 	}//paso1
